@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.jb.JobApp.model.JobPost;
+
 @Controller
 @RequestMapping
 public class JobController {
@@ -25,5 +27,11 @@ public class JobController {
     {
         return "addjob";
     }
-///////////////////////////////////////////
+/////////////////////////////////////////// 
+//  addjob page
+    @PostMapping("handleForm") //add job
+    public String handleForm(JobPost jobPost) //senting data to accept that data
+    {
+        return "success";
+    }
 }
