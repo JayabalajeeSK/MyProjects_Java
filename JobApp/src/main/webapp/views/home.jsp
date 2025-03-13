@@ -21,7 +21,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
 	<div class="container">
-		<a class="navbar-brand fs-1 fw-medium" href="#">Telusko Job Portal Web App</a>
+		<a class="navbar-brand fs-1 fw-medium" href="#">Jaya Job Portal Web App</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="https://telusko11.com/">Contact</a>
+					<a class="nav-link" href="www.linkedin.com/in/jayabalajee-s-k/">Contact</a>
 				</li>
 			</ul>
 		</div>
