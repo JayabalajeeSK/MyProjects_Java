@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping
 public class JobController {
-
+///////////////////////////////////////////
     @GetMapping({"/","home"}) // home and home page button (nav)
     public String home() {
         return "home"; 
@@ -25,4 +25,5 @@ public class JobController {
     {
         return "addjob";
     }
+///////////////////////////////////////////
 }
