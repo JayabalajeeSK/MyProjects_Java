@@ -41,6 +41,10 @@ public class SpringDataJpaExApplication {
 
 		Optional <Student> s = repo.findById(104);
 		System.out.println(s.orElse(new Student()));
+
+		System.out.println(repo.findByName("Jaya"));
+		
+		System.out.println(repo.findByMarks(85));
 	}
 
 }

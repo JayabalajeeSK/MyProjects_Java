@@ -14,6 +14,10 @@ public class Student {
 	//properties 
 	@Id
 	private int rollNo;
+	@Override
+	public String toString() {
+		return "Student [rollNo=" + rollNo + ", name=" + name + ", marks=" + marks + "]";
+	}
 	private String name;
 	private int marks;
 	
