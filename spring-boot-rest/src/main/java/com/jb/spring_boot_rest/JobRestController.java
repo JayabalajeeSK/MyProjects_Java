@@ -20,7 +20,7 @@ public class JobRestController {
 @Autowired
     private JobService service;
 
-    @GetMapping("jobPost")
+    @GetMapping(path="jobPost", produces = {"application/json"})
     //@ResponseBody
     public List<JobPost> getAlljobs()
     {
