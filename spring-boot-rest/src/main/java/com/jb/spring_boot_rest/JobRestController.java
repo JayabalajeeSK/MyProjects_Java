@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import com.jb.spring_boot_rest.model.JobPost;
 import com.jb.spring_boot_rest.service.JobService;
@@ -20,6 +21,13 @@ public class JobRestController {
     public List<JobPost> getAlljobs()
     {
         return service.getAllJobs();
+
+    }
+    @GetMapping("jobPosts/{postId}")
+    //@ResponseBody
+    public JobPost getjobs(@PathVariable("postId") int postId)
+    {
+        return service.getJob(postId);
 
     }
 }

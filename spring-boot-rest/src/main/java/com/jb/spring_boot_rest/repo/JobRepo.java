@@ -43,5 +43,16 @@ public class JobRepo {
 
     }
 
+    //get post by id
+    public JobPost getJob(int postId)
+    {
+        for(JobPost job:jobs)
+        {
+                if(job.getPostId()==postId)
+                        return job;
+        }
+        return null;
+    }
+
 
 }
