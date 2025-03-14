@@ -7,9 +7,42 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Component
+//@Component
 public class JobPost {
 
+//public JobPost(int i, String string, String string2, int j, List<String> of) {
+//		// TODO Auto-generated constructor stub
+//	}
+	//	public int getPostId() {
+//		return postId;
+//	}
+//	public void setPostId(int postId) {
+//		this.postId = postId;
+//	}
+//	public String getPostProfile() {
+//		return postProfile;
+//	}
+//	public void setPostProfile(String postProfile) {
+//		this.postProfile = postProfile;
+//	}
+//	public String getPostDesc() {
+//		return postDesc;
+//	}
+//	public void setPostDesc(String postDesc) {
+//		this.postDesc = postDesc;
+//	}
+//	public int getReqExperience() {
+//		return reqExperience;
+//	}
+//	public void setReqExperience(int reqExperience) {
+//		this.reqExperience = reqExperience;
+//	}
+//	public List<String> getPostTechStack() {
+//		return postTechStack;
+//	}
+//	public void setPostTechStack(List<String> postTechStack) {
+//		this.postTechStack = postTechStack;
+//	}
 //	public JobPost(int postId, String postProfile, String postDesc, int reqExperience, List<String> postTechStack) {
 //        this.postId = postId;
 //        this.postProfile = postProfile;
