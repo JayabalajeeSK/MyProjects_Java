@@ -22,7 +22,7 @@ public class SpringDataJpaExApplication {
 		Student s3=context.getBean(Student.class);
 		s1.setRollNo(101);
 		s1.setName("Jaya");
-		s1.setMarks(75);
+		s1.setMarks(88);
 
 		s2.setRollNo(102);
 		s2.setName("Bala");
@@ -43,8 +43,10 @@ public class SpringDataJpaExApplication {
 		System.out.println(s.orElse(new Student()));
 
 		System.out.println(repo.findByName("Jaya"));
-		
+
 		System.out.println(repo.findByMarks(85));
+
+		repo.delete(s3);
 	}
 
 }

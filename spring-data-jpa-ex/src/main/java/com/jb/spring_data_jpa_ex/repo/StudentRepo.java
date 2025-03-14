@@ -3,7 +3,7 @@ package com.jb.spring_data_jpa_ex.repo;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+//import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.jb.spring_data_jpa_ex.model.Student;
