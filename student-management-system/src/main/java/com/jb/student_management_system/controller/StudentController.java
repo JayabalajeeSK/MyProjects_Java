@@ -23,7 +23,7 @@ public class StudentController
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
-
+/////////////////////////////////////////////////////////////
     //handle - List of all students
     @GetMapping("/students")
     public String listStudents(Model model)
@@ -81,7 +81,6 @@ public class StudentController
     }
 
 ///////////////////////////////////////////////////////////////////////////////
-
     //handle - handle delete student request
     @GetMapping("/students/{studentId}/delete")
     public String deleteStudent(@PathVariable("studentId") Long studentId)
@@ -89,4 +88,13 @@ public class StudentController
         studentService.deleteStudent(studentId);
             return "redirect:/students";
     } 
+/////////////////////////////////////////////////////////////////////////////
+/// handle - handle view Student request  
+    @GetMapping("/students/{studentId}/view")
+    public String viewStudent(@PathVariable("studentId") Long studentId, Model model)
+    {
+        StudentDto studentDto = studentService.getStudentById(studentId);
+        model.addAttribute("student", studentDto);
+        return "view_student";
+    }
 }
