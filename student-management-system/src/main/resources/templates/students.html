@@ -40,7 +40,11 @@
         <td th:text="${student.lastName}"></td>
         <td th:text="${student.email}"></td>
         <td>
-          <a class="btn btn-primary d-block mx-auto" th:href="@{/students/{studentId}/edit(studentId=${student.id})}">Edit</a>
+          <div class="text-center">
+          <a class="btn btn-primary mx-2" th:href="@{/students/{studentId}/edit(studentId=${student.id})}">Edit</a>
+          <span></span>
+          <a class="btn btn-danger mx-2" th:href="@{/students/{studentId}/delete(studentId=${student.id})}">Delete</a>
+          </div>
         </td>
       </tr>
     </tbody>

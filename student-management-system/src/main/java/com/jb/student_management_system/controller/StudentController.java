@@ -54,6 +54,8 @@ public class StudentController
         studentService.createStudent(student);
         return "redirect:/students"; // save and redirect to the students page to list all students
     }
+    
+//////////////////////////////////////////////////////////////////////
 
     //handle - handle edit student request
     @GetMapping("/students/{studentId}/edit")
@@ -64,7 +66,7 @@ public class StudentController
         return "edit_student";
     }
 
-    //handle - handle edit student from upadte and save request
+    //handle - handle edit student from update and save request
     @PostMapping("/students/{studentId}") //instead of put using post mapping
     public String updateStudent(@Valid @PathVariable("studentId") Long studentId, @ModelAttribute("student") StudentDto studentDto, BindingResult result, Model model)
     {
@@ -77,4 +79,14 @@ public class StudentController
         studentService.updateStudent(studentDto);
         return "redirect:/students"; // update and save and redirect to the students page to list all students
     }
+
+///////////////////////////////////////////////////////////////////////////////
+
+    //handle - handle delete student request
+    @GetMapping("/students/{studentId}/delete")
+    public String deleteStudent(@PathVariable("studentId") Long studentId)
+    {
+        studentService.deleteStudent(studentId);
+            return "redirect:/students";
+    } 
 }
