@@ -16,12 +16,22 @@ public class StudentController
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
-    @GetMapping("/student")
+
+    //handle - List of all students
+    @GetMapping("/students")
     public String listStudents(Model model)
     {
         List<StudentDto> students = studentService.getAllStudents();
         model.addAttribute("students", students);
         return "students";
+    }
 
+    //handle - Add new student
+    @GetMapping("/students/new")
+    public String newStudents(Model model)
+    {
+        StudentDto studentDto = new StudentDto();
+        model.addAttribute("student", studentDto);
+        return "create_student";
     }
 }
