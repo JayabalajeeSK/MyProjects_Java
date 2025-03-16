@@ -21,7 +21,7 @@ public class StudentController
     {
         List<StudentDto> students = studentService.getAllStudents();
         model.addAttribute("students", students);
-        return "student";
+        return "students";
 
     }
 }
