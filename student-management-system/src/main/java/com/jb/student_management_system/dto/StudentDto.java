@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class StudentDto {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty(message = "Student first name should not be empty")
     private String firstName;
