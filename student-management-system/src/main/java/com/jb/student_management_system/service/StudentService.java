@@ -5,4 +5,6 @@ public interface StudentService
 {
     List<StudentDto> getAllStudents();
 
+    void createStudent(StudentDto student);
+
 }
