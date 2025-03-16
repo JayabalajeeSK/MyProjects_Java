@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.jb.student_management_system.dto.StudentDto;
 import com.jb.student_management_system.service.StudentService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 @Controller//become mvc controller - capable to handle Rest API
 @RequestMapping
@@ -39,8 +43,13 @@ public class StudentController
 
     //handle - save student form submit request
     @PostMapping("/students")
-    public String saveStudent(@ModelAttribute("student") StudentDto student)// all changes will save in the model attribute - student class
+    public String saveStudent(@Valid @ModelAttribute("student") StudentDto student, BindingResult result, Model model)// all changes will save in the model attribute - student class
     {
+        if(result.hasErrors())
+        {
+            model.addAttribute("student", student);
+            return "create_student";
+        }
         studentService.createStudent(student);
         return "redirect:/students"; // save and redirect to the students page to list all students
     }
