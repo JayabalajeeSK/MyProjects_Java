@@ -3,6 +3,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.jb.student_management_system.dto.StudentDto;
@@ -52,5 +53,14 @@ public class StudentController
         }
         studentService.createStudent(student);
         return "redirect:/students"; // save and redirect to the students page to list all students
+    }
+
+    //handle - handle edit student request
+    @GetMapping("/students/{studentId}/edit")
+    public String editStudent(@PathVariable("studentId") Long studentId, Model model)
+    {
+        StudentDto student = studentService.getStudentById(studentId);
+        model.addAttribute("student", student);
+        return "edit_student";
     }
 }
