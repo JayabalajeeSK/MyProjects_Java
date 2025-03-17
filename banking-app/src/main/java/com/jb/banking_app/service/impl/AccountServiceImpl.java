@@ -1,5 +1,6 @@
 package com.jb.banking_app.service.impl;
 
+import java.time.LocalDateTime;
 //import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.jb.banking_app.dto.AccountDto;
 import com.jb.banking_app.dto.TransferFundDto;
 import com.jb.banking_app.entity.Account;
+import com.jb.banking_app.entity.Transaction;
 import com.jb.banking_app.exception.AccountException;
 import com.jb.banking_app.mapper.AccountMapper;
 import com.jb.banking_app.repository.AccountRepository;
@@ -42,13 +44,20 @@ public class AccountServiceImpl implements AccountService {
         Account account = accountRepository.findById(id).orElseThrow(() -> new AccountException("Account Does not exist"));
         return AccountMapper.mapToAccountDto(account);
     }
-
+    //deposit
     @Override
     public AccountDto deposit(Long id, double amount) {
         Account account = accountRepository.findById(id).orElseThrow(() -> new AccountException("Account Does not exist"));
         double total = account.getBalance() + amount; ////
         account.setBalance(total);
         Account savedAccount = accountRepository.save(account);
+
+        Transaction transaction = new Transaction();
+        transaction.setAccountId(account.getId());
+        transaction.setAmount(amount);
+        transaction.setTransactionType("DEPOSIT");
+        transaction.setTimeStamp(LocalDateTime.now());
+        
         return AccountMapper.mapToAccountDto(savedAccount);
     }
 
