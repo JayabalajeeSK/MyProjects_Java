@@ -1,5 +1,9 @@
 package com.jb.banking_app.service.impl;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.jb.banking_app.dto.AccountDto;
@@ -14,6 +18,13 @@ public class AccountServiceImpl implements AccountService {
 
     public AccountServiceImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
+    }
+
+    @Override
+    public List<AccountDto> getAllAccounts() {
+        List<Account> accounts = accountRepository.findAll();
+        return accounts.stream().map((account) -> AccountMapper.mapToAccountDto(account))
+                                                        .collect(Collectors.toList());
     }
 
     @Override

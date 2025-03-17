@@ -1,5 +1,6 @@
 package com.jb.banking_app.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,16 @@ public class AccountController {
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
     }
+
+//////////////////////////////////// 
+    // Get All Accounts Rest API
+    @GetMapping("/api/accounts")
+    public ResponseEntity<List<AccountDto>> getAllAccounts()
+    {
+        List<AccountDto> accounts = accountService.getAllAccounts();
+        return ResponseEntity.ok(accounts);
+    }
+
 //////////////////////////////////// 
     // Add Account Rest API
     @PostMapping("/api/accounts")
