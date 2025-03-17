@@ -21,7 +21,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountRepository accountRepository;
 
     public AccountServiceImpl(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
+        this.accountRepository = accountRepository; //
     }
 
     @Override
