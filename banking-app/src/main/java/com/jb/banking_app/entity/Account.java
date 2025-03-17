@@ -13,16 +13,25 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity
 @Table(name = "accounts")
 public class Account {
-    @Id
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
     @Column(name = "account_holder_name")
     private String accountHolderName;
     private double balance;
+    
+    public Account(Long id, String accountHolderName, double balance) {
+        this.id = id;
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
+    }
 
+
+    
 }
