@@ -1,6 +1,6 @@
 package com.jb.banking_app.service.impl;
 
-import java.util.Collections;
+//import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,6 +61,14 @@ public class AccountServiceImpl implements AccountService {
         account.setBalance(total);
         Account savedAccount = accountRepository.save(account);
         return AccountMapper.mapToAccountDto(savedAccount);
+
+    }
+
+    @Override
+    public void deleteAccount(Long id) {
+        Account account = accountRepository.findById(id).orElseThrow(() -> new RuntimeException("Account Does not exist"));
+        accountRepository.deleteById(id);
+        System.out.println("Deleted account: " + account.getAccountHolderName() + " with balance: " + account.getBalance());
 
     }
 }
