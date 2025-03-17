@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.jb.banking_app.dto.AccountDto;
+import com.jb.banking_app.dto.TransferFundDto;
 import com.jb.banking_app.entity.Account;
 import com.jb.banking_app.exception.AccountException;
 import com.jb.banking_app.mapper.AccountMapper;
@@ -71,5 +72,21 @@ public class AccountServiceImpl implements AccountService {
         accountRepository.deleteById(id);
         System.out.println("Deleted account: " + account.getAccountHolderName() + " with balance: " + account.getBalance());
 
+    }
+
+    @Override
+    public void transferFunds(TransferFundDto transferFundDto) {
+        //retrive sender account amount 
+        Account fromAccount = accountRepository.findById(transferFundDto.fromAccountId()).orElseThrow(() -> new AccountException("Account Does not exist"));
+        //retrive receiver account amount
+        Account toAccount = accountRepository.findById(transferFundDto.toAccountId()).orElseThrow(() -> new AccountException("Account Does not exist"));
+
+        //Debit the amount from senderAccount Object
+        fromAccount.setBalance(fromAccount.getBalance() - transferFundDto.amount());
+        //credit the amount to receiverAccount Object
+        toAccount.setBalance(toAccount.getBalance() + transferFundDto.amount());
+
+        accountRepository.save(fromAccount);
+        accountRepository.save(toAccount);
     }
 }

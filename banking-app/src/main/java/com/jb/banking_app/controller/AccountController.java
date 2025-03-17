@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jb.banking_app.dto.AccountDto;
+import com.jb.banking_app.dto.TransferFundDto;
 import com.jb.banking_app.service.AccountService;
 
 @Controller
@@ -82,4 +83,16 @@ public class AccountController {
         accountService.deleteAccount(id);
         return ResponseEntity.ok("Account is deleted successfully");
     }
+
+//////////////////////////////////// 
+    // fund amount transfer by ID Rest API
+    @PostMapping("/api/accounts/transfer")
+    public ResponseEntity<String> transferFund(@RequestBody TransferFundDto transferFundDto)
+    {
+        accountService.transferFunds(transferFundDto);
+        return ResponseEntity.ok("Fund Amount Transfered Successfully");
+    }
+
+
+
 }

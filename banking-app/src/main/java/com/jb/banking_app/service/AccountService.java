@@ -1,6 +1,7 @@
 package com.jb.banking_app.service;
 import java.util.List;
 import com.jb.banking_app.dto.AccountDto;
+import com.jb.banking_app.dto.TransferFundDto;
 
 public interface AccountService {
 
@@ -15,5 +16,7 @@ public interface AccountService {
     AccountDto withdraw(Long id, double amount);
 
     void deleteAccount(Long id);
+
+    void transferFunds(TransferFundDto transferFundDto);
 
 }
