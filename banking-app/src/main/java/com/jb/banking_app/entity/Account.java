@@ -8,12 +8,12 @@ import jakarta.persistence.Table;
 //import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+//import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 //@AllArgsConstructor
 @Data
 @Entity
@@ -34,7 +34,10 @@ public class Account {
         this.balance = balance;
     }
 
-	public Long getId() {
+	public Account() {
+    }
+
+    public Long getId() {
 		return id;
 	}
 
