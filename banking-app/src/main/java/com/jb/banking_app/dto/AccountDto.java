@@ -1,7 +1,6 @@
 package com.jb.banking_app.dto;
 
 import lombok.Data;
-
 @Data
 public class AccountDto {
     private Long id;
@@ -31,3 +30,6 @@ public class AccountDto {
         this.balance = balance;
     }
 }
+/////////////////////////RECORD CLASS
+// public record AccountDto(Long id, String accountHolderName, double balance) {
+// }

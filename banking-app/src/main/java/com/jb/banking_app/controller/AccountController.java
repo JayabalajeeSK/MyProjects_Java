@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.service.annotation.DeleteExchange;
 
 import com.jb.banking_app.dto.AccountDto;
 import com.jb.banking_app.service.AccountService;
@@ -57,7 +56,7 @@ public class AccountController {
 
 //////////////////////////////////// 
     // deposit amount by ID Rest API
-    @PutMapping("/api/accounts/{id}")
+    @PutMapping("/api/accounts/{id}/deposit")
     public ResponseEntity<AccountDto> deposit(@PathVariable("id") Long id, @RequestBody Map<String, Double> request)
     {
         Double amount = request.get("amount");
