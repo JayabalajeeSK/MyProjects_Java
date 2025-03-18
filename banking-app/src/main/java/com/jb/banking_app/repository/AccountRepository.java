@@ -7,3 +7,4 @@ import com.jb.banking_app.entity.Account;
 public interface AccountRepository extends JpaRepository<Account, Long>{
 
 }
+//

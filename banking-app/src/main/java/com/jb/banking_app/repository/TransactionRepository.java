@@ -9,3 +9,4 @@ import com.jb.banking_app.entity.Transaction;
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
     List<Transaction> findByAccountIdOrderByTimeStampDesc(Long accountId);
 }
+//

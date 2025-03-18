@@ -37,3 +37,4 @@ public class GlobalExceptionHandler extends RuntimeException {
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
+//

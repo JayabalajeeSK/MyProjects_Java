@@ -30,7 +30,7 @@
 -- END //
 
 -- DELIMITER ;
-
+--
 -- -- Insert a new account
 -- CALL GetNextAccountID(@nextID);
 -- INSERT INTO accounts (id, account_holder_name, balance) VALUES (@nextID, 'jaya', 5000.00);

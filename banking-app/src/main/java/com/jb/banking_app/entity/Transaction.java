@@ -76,8 +76,5 @@ public class Transaction {
     public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
     }
-
-    
-
-    
 }
+//

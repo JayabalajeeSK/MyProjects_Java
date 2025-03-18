@@ -10,5 +10,4 @@ public class BankingAppApplication {
 		//Account account = new Account( 1L,"jaya",33.00);
 		
 	}
-
-}
+}//

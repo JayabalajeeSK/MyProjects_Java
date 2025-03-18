@@ -148,5 +148,4 @@ public class AccountServiceImpl implements AccountService {
             return transactions.stream().map((transaction) -> convertEntityToDto(transaction))
                                  .collect((Collectors.toList()));
         }
-        
-}
+}//
