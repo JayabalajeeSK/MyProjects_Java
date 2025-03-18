@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.jb.banking_app.dto.AccountDto;
+import com.jb.banking_app.dto.TransactionDto;
 import com.jb.banking_app.dto.TransferFundDto;
 import com.jb.banking_app.entity.Account;
 import com.jb.banking_app.entity.Transaction;
@@ -127,4 +128,25 @@ public class AccountServiceImpl implements AccountService {
 
         transactionRepository.save(transaction);
     }
+
+    ////FETCH ACCOUNT TRANSACTIONS 
+        private TransactionDto convertEntityToDto(Transaction transaction)
+        {
+            return new TransactionDto
+            (
+                transaction.getId(),
+                transaction.getAccountId(), 
+                transaction.getAmount(), 
+                transaction.getTransactionType(),
+                transaction.getTimeStamp()
+            );
+        }
+        
+        @Override
+        public List<TransactionDto> getAccountTransaction(Long accountId) {
+            List<Transaction> transactions = transactionRepository.findByAccountIdOrderByTimeStampDesc(accountId);
+            return transactions.stream().map((transaction) -> convertEntityToDto(transaction))
+                                 .collect((Collectors.toList()));
+        }
+        
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jb.banking_app.dto.AccountDto;
+import com.jb.banking_app.dto.TransactionDto;
 import com.jb.banking_app.dto.TransferFundDto;
 import com.jb.banking_app.service.AccountService;
 
@@ -92,7 +93,12 @@ public class AccountController {
         accountService.transferFunds(transferFundDto);
         return ResponseEntity.ok("Fund Amount Transfered Successfully");
     }
-
-
-
+//////////////////////////////////////
+    // build Transaction Rest Api
+    @GetMapping("/api/accounts/{id}/transactions")
+    public ResponseEntity<List<TransactionDto>> fetchAccountTransactions(@PathVariable("id") Long accountId)
+    {
+        List<TransactionDto> transactions = accountService.getAccountTransaction(accountId);
+        return ResponseEntity.ok(transactions);
+    }
 }
