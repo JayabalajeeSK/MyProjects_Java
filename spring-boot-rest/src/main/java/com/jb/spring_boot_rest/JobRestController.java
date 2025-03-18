@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.jb.spring_boot_rest.model.JobPost;
-import com.jb.spring_boot_rest.service.JobService;
+import com.jb.spring_boot_rest.service.impl.JobServiceImplementation;
 
 @Controller
 @RestController
 @CrossOrigin(origins="http://localhost:3000/")
 public class JobRestController {
 @Autowired
-    private JobService service;
+    private JobServiceImplementation service;
 
     @GetMapping(path="jobPost", produces = {"application/json"})
     //@ResponseBody
