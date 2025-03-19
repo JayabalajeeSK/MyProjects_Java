@@ -32,4 +32,18 @@ public class ProductServiceImplementation implements ProductService {
         product.setImageData(image.getBytes());
         return productRepo.save(product);
     }
+
+    @Override
+    public Product UpdateProduct(Product product, MultipartFile imageFile) throws IOException {
+        product.setImageName(imageFile.getOriginalFilename());
+        product.setImageType(imageFile.getContentType());
+        product.setImageData(imageFile.getBytes());
+        return productRepo.save(product);
+
+    }
+
+    @Override
+    public void deleteProduct(int id) {
+        productRepo.deleteById(id);
+    }
 }
