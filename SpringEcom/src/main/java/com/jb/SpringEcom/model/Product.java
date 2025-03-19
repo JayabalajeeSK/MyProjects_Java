@@ -1,6 +1,10 @@
 package com.jb.SpringEcom.model;
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +26,7 @@ public class Product {
     private String brand;
     private BigDecimal price;
     private String category;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
     private Date releaseDate;
     private boolean productAvailable;
     private int stockQuantity;
@@ -93,4 +98,11 @@ public class Product {
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
     }
+
+
+    public Product(int id) {
+        this.id = id;
+    }
+
+    
 }
