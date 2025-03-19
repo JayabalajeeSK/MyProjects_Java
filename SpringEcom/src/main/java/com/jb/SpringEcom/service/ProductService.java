@@ -16,4 +16,6 @@ public interface ProductService  {
 
     void deleteProduct(int id);
 
+    List<Product> searchProducts(String keyword);
+
 }

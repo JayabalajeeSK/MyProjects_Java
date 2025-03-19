@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -80,8 +81,8 @@ public class ProductController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    ///// Update Product by id
-    @DeleteMapping("/product/{id}") // from React UI
+///// Update Product by id
+    @DeleteMapping("/product/{id}") 
     public ResponseEntity<String> deleteProduct(@PathVariable int id)
     {
         Product product = productService.getProductById(id);
@@ -93,7 +94,14 @@ public class ProductController {
         else
         {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        
+        } 
+    }
+///// Search Product
+    @GetMapping("/products/search") 
+    public ResponseEntity<List<Product>> searchProduct(@RequestParam String keyword)
+    {
+        List<Product> products = productService.searchProducts(keyword);
+        System.out.println("seraching with: "+keyword);
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
 }
