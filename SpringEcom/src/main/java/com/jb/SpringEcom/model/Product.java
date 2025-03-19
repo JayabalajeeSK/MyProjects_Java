@@ -3,12 +3,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
+//import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 //import lombok.AllArgsConstructor;
 import lombok.Data;
 //import lombok.NoArgsConstructor;
@@ -30,8 +31,14 @@ public class Product {
     private Date releaseDate;
     private boolean productAvailable;
     private int stockQuantity;
+
+    private String imageName;
+    private String imageType;
+    @Lob
+    private byte[] imageData;
     public Product(int id, String name, String description, String brand, BigDecimal price, String category,
-            Date releaseDate, boolean productAvailable, int stockQuantity) {
+            Date releaseDate, boolean productAvailable, int stockQuantity, String imageName, String imageType,
+            byte[] imageData) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -41,7 +48,11 @@ public class Product {
         this.releaseDate = releaseDate;
         this.productAvailable = productAvailable;
         this.stockQuantity = stockQuantity;
+        this.imageName = imageName;
+        this.imageType = imageType;
+        this.imageData = imageData;
     }
+
     public Product() {
     }
     public int getId() {
@@ -99,6 +110,30 @@ public class Product {
         this.stockQuantity = stockQuantity;
     }
 
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
+    }
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
+    }
 
     public Product(int id) {
         this.id = id;
