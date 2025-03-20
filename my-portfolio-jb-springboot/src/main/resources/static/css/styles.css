@@ -1,0 +1,200 @@
+body{margin:0;}
+
+
+.container img{position:relative;width:100%; height:760px}
+
+#lead-content {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    max-width: 100%; /* Full width to prevent overflow */
+    box-sizing: border-box; /* Ensures padding/margin don't affect width */
+    overflow: hidden; /* Prevents content overflow */
+    white-space: normal; /* Allows text to wrap properly */
+    word-wrap: break-word; /* Ensures long words break correctly */
+    
+}
+
+#links a {
+    text-decoration: none;
+    padding: 14px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    color: #ffffff; /* White text by default */
+    font-family: 'Arial', sans-serif; /* Simple and clean font */
+    position: relative;
+    font-weight: bold;
+    transition: color 0.4s ease-in-out;
+}
+
+/* Underline Effect on Hover */
+#links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background: #ff4d4d; /* Vibrant red for underline */
+    transition: width 0.4s ease-in-out;
+}
+
+/* Text color transition from right to left */
+#links a:hover {
+    background: linear-gradient(to left, #ff4d4d, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Expand underline from left to right */
+#links a:hover::after {
+    width: 100%;
+}
+
+
+/**/
+#lead-content h1 {
+    font-weight: 900;
+    font-size: 5em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    color: #FFFFFF; /* Pure White with No Shine */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: inherit;
+    text-shadow: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* On Hover/Touch: Add Red Glow Effect */
+#lead-content h1:hover,
+#lead-content h1:active {
+    color: #FF0000; /* Red on Hover */
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 
+                 0 0 12px rgba(255, 0, 0, 0.6), 
+                 0 0 15px rgba(255, 0, 0, 0.7); /* Red Glow */
+    transition: all 0.3s ease-in-out;
+}
+
+
+#lead-content h2{color:#F1F1F1;font-weight:500;font-size:3em;margin-bottom:2px}
+.btn-rounded {
+    background: linear-gradient(135deg, #00bfff, #0077cc); /* Bright Blue Gradient */
+    border: none;
+    color: #fff; /* White Text */
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 4px 2px;
+    border-radius: 25px; /* More Rounded Corners */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* Light Shadow */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.btn-rounded:hover {
+    color: #fff;
+    background: linear-gradient(135deg, #ff4d4d, #ff1a1a); /* Vibrant Red Gradient */
+    text-decoration: none;
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.4);
+    transform: scale(1.05); /* Slight Zoom Effect */
+}
+
+
+
+#education {padding:75px 15px;border-bottom:1px solid #dcd9d9;background-color: #ffff;text-align:center}
+#education h2{color:#374054;text-align:center}
+#img1 {position: absolute; width:10%;height:20%;left:20%;}
+#img2 {position: absolute; width:10%;height:20%;left:65%;}
+#education h3{color:#374054;}
+#education h4{color:#74808a}
+
+
+#experience {padding:30px 10px;border-bottom:1px solid #dcd9d9;background-color: #f1f2f3}
+#experience h2{color:#374054;text-align:center}
+#experience h3{color:#374054;}
+#experience h4{color:#74808a}
+#experience ul{ color:#74808a;margin:0;font-weight: 400}
+
+
+#skills {padding:30px 10px;border-bottom:1px solid #dcd9d9;text-align:center;background-color: #fff}
+#skills h2{color:#374054;margin-bottom:50px}
+#skills ul{display:block;margin:0 auto;padding:0;max-width:800px}
+#skills li{display:inline-block;margin:7px;padding:5px 10px;color:#374054;background:#f1f2f3;list-style:none;cursor:default;font-size:1.2em}
+
+
+#courses {padding:30px 10px;border-bottom:1px solid #dcd9d9;text-align:center;background-color: #f1f2f3}
+#courses h2{color:#374054;margin-bottom:50px}
+#courses ul{display:block;margin:0 auto;padding:0;max-width:800px}
+#courses li{display:inline-block;margin:7px;padding:5px 10px;color:#374054;background:#fff;list-style:none;cursor:default;font-size:1.2em}
+
+
+#contact {padding:30px 10px;border-bottom:1px solid #dcd9d9;text-align:center;background-color: #fff}
+#contact h2{color:#374054;margin-bottom:50px}
+#contact a{text-decoration: none; padding: 14px 25px; text-align: center; display:inline-block;font-size:20px;color:#a0cfee}
+
+/* Popup container */
+#demo {
+    padding: 20px;
+    text-align: justify;
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.9;
+    border-radius: 50px 20px;
+    width: 300px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: none; /* Hidden by default */
+}
+
+/* Header styling */
+#demo h2 {
+    color: #1E90FF;
+    text-align: center;
+}
+
+/* Button styling */
+#btn {
+    text-align: center;
+    background-color: #a0cfee;
+    border: none;
+    color: white;
+    padding: 14px 45px;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 50px 20px;
+    cursor: pointer;
+}
+
+/* Input styling */
+#city {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Close button */
+#close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 14px;
+}
