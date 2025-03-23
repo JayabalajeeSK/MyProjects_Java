@@ -3,6 +3,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -26,6 +27,7 @@ public class TodoController
     }
 
 //add todo rest api
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<TodoDto> addTodo(@RequestBody TodoDto todoDto)
     {
@@ -33,6 +35,7 @@ public class TodoController
         return new ResponseEntity<>(savedTodo, HttpStatus.CREATED);
     }
 //get todo by id rest api
+@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping("{id}")
     public ResponseEntity<TodoDto> getTodo(@PathVariable("id") Long todoId)
     {
@@ -40,6 +43,7 @@ public class TodoController
         return new ResponseEntity<>(todoDto, HttpStatus.OK);
     }
 //get all todos rest api
+@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping
     public ResponseEntity<List<TodoDto>> getAllTodos()
     {
@@ -48,6 +52,7 @@ public class TodoController
         return ResponseEntity.ok(todos);
     }
 //update todo by id rest api
+@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("{id}")
     public ResponseEntity<TodoDto> updateTodo(@RequestBody TodoDto todoDto, @PathVariable("id") Long todoId)
     {
@@ -55,6 +60,7 @@ public class TodoController
         return new ResponseEntity<>(updatedTodo, HttpStatus.OK);
     }
 //delete todo by id rest api
+@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteTodo(@PathVariable("id") Long todoId)
     {
@@ -62,6 +68,7 @@ public class TodoController
         return ResponseEntity.ok(" Todo Deleted Successfully");
     }
 //complete (status) todo by id rest api
+@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @PatchMapping("{id}/complete")
     public ResponseEntity<TodoDto> completeTodo(@PathVariable("id") Long todoId)
     {
@@ -69,6 +76,7 @@ public class TodoController
         return ResponseEntity.ok(updatedTodo);
     }
 //in - complete (status) todo by id rest api
+@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @PatchMapping("{id}/in-complete")
     public ResponseEntity<TodoDto> inCompleteTodo(@PathVariable("id") Long todoId)
     {
