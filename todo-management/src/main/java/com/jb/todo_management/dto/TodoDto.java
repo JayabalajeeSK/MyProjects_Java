@@ -36,7 +36,4 @@ public class TodoDto {
         this.description = description;
         this.completed = completed;
     }
-
-
-
 }
