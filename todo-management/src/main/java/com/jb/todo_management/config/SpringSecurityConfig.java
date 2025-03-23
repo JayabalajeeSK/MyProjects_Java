@@ -2,6 +2,7 @@ package com.jb.todo_management.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -24,6 +25,15 @@ public class SpringSecurityConfig {
     {
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests((authorize) -> {
+             authorize.requestMatchers(HttpMethod.POST, "/api/**").hasAnyRole("ADMIN");
+             authorize.requestMatchers(HttpMethod.PUT, "/api/**").hasAnyRole("ADMIN");
+             authorize.requestMatchers(HttpMethod.DELETE, "/api/**").hasAnyRole("ADMIN");
+
+             authorize.requestMatchers(HttpMethod.GET, "/api/**").hasAnyRole("ADMIN", "USER");
+             authorize.requestMatchers(HttpMethod.PATCH, "/api/**").hasAnyRole("ADMIN", "USER");
+
+            authorize.requestMatchers(HttpMethod.GET, "/api/**").permitAll();
+
              authorize.anyRequest().authenticated();
              }).httpBasic(Customizer.withDefaults());
 
