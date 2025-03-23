@@ -1,5 +1,4 @@
 package com.jb.todo_management.dto;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

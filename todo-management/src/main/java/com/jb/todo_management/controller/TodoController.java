@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jb.todo_management.dto.TodoDto;
 import com.jb.todo_management.service.TodoService;
 
-
 @RestController
 @RequestMapping("api/todos")
 public class TodoController 
