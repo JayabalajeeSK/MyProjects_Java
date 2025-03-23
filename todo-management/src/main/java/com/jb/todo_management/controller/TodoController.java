@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,5 +48,12 @@ public class TodoController
         List<TodoDto> todos = todoService.getAllTodos();
         //return new ResponseEntity<>(todos, HttpStatus.OK);
         return ResponseEntity.ok(todos);
+    }
+//update todo by id rest api
+    @PutMapping("{id}")
+    public ResponseEntity<TodoDto> updateTodo(@RequestBody TodoDto todoDto, @PathVariable("id") Long todoId)
+    {
+        TodoDto updatedTodo = todoService.updateTodo(todoDto, todoId);
+        return new ResponseEntity<>(updatedTodo, HttpStatus.OK);
     }
 }
