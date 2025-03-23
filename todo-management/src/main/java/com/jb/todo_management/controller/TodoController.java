@@ -3,6 +3,8 @@ package com.jb.todo_management.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +24,18 @@ public class TodoController
         this.todoService = todoService;
     }
 
-//add toto rest api
+//add todo rest api
     @PostMapping
     public ResponseEntity<TodoDto> addTodo(@RequestBody TodoDto todoDto)
     {
         TodoDto savedTodo = todoService.addTodo(todoDto);
         return new ResponseEntity<>(savedTodo, HttpStatus.CREATED);
+    }
+//get todo by id rest api
+    @GetMapping("{id}")
+    public ResponseEntity<TodoDto> getTodo(@PathVariable("id") Long todoId)
+    {
+        TodoDto todoDto = todoService.getTodo(todoId);
+        return new ResponseEntity<>(todoDto, HttpStatus.OK);
     }
 }
