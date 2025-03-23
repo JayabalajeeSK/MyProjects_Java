@@ -28,6 +28,7 @@ public class TodoServiceImplementation implements TodoService{
         Todo savedTodo = todoRepository.save(todo);
 
         TodoDto savedTodoDto = new TodoDto();
+        savedTodoDto.setId(savedTodo.getId());
         savedTodoDto.setTitle(savedTodo.getTitle());
         savedTodoDto.setDescription(savedTodo.getDescription());
         savedTodoDto.setCompleted(savedTodo.isCompleted());

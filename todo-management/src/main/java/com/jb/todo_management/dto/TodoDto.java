@@ -1,9 +1,23 @@
 package com.jb.todo_management.dto;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class TodoDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String title;
+
+    @Column(name = "description", nullable = false)
     private String description;
+
     private boolean completed;
+
     public Long getId() {
         return id;
     }
