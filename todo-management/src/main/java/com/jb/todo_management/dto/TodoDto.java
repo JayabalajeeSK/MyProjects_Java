@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 public class TodoDto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,7 +18,6 @@ public class TodoDto {
     private String description;
 
     private boolean completed;
-
     public Long getId() {
         return id;
     }
