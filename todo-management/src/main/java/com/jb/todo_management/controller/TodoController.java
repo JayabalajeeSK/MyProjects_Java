@@ -1,5 +1,7 @@
 package com.jb.todo_management.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +39,13 @@ public class TodoController
     {
         TodoDto todoDto = todoService.getTodo(todoId);
         return new ResponseEntity<>(todoDto, HttpStatus.OK);
+    }
+//get all todos rest api
+    @GetMapping
+    public ResponseEntity<List<TodoDto>> getAllTodos()
+    {
+        List<TodoDto> todos = todoService.getAllTodos();
+        //return new ResponseEntity<>(todos, HttpStatus.OK);
+        return ResponseEntity.ok(todos);
     }
 }

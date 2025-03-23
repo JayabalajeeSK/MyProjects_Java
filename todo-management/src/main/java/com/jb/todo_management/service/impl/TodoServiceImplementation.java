@@ -1,5 +1,6 @@
 package com.jb.todo_management.service.impl;
-
+import java.util.List;
+import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +36,13 @@ public class TodoServiceImplementation implements TodoService{
     {
         Todo todo = todoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Todo not found with id: "+id));
         return modelMapper.map(todo, TodoDto.class);
+    }
+
+    @Override
+    public List<TodoDto> getAllTodos() 
+    {
+        List<Todo> todos = todoRepository.findAll();
+        return todos.stream().map((todo) -> modelMapper.map(todo, TodoDto.class))
+                                                       .collect(Collectors.toList());
     }
 }
