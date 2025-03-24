@@ -1,5 +1,9 @@
 package com.jb.todo_management.entity;
+
 import java.util.Set;
+
+// import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,28 +15,31 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-// import lombok.AllArgsConstructor;
-// import lombok.Getter;
-// import lombok.NoArgsConstructor;
-// import lombok.Setter;
-// @Setter
+// import jakarta.persistence.UniqueConstraint;
+
+@Entity
+@Table(name = "users")
 // @Getter
+// @Setter
 // @NoArgsConstructor
 // @AllArgsConstructor
-@Entity
-@Table(name="users")
 public class User {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     private String name;
-    @Column(nullable=false, unique=true)
+    
+    @Column(nullable = false, unique = true)
     private String email;
-    @Column(nullable=false, unique=true)
+    
+    @Column(nullable = false, unique = true)
     private String username;
-    @Column(nullable=false)
+    
+    @Column(nullable = false)
     private String password;
-
+    
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
         name = "users_roles",
@@ -41,6 +48,11 @@ public class User {
     )
     private Set<Role> roles;
 
+    // No-arg constructor
+    public User() {
+    }
+
+    // All-arg constructor
     public User(Long id, String name, String email, String username, String password, Set<Role> roles) {
         this.id = id;
         this.name = name;
@@ -50,9 +62,7 @@ public class User {
         this.roles = roles;
     }
 
-    public User() {
-    }
-
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -101,6 +111,14 @@ public class User {
         this.roles = roles;
     }
 
-    
-    
+    // toString() to avoid password exposure
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }
