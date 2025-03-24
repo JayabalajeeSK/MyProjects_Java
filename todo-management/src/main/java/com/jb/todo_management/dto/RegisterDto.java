@@ -52,5 +52,4 @@ public class RegisterDto {
     public void setPassword(String password) {
         this.password = password;
     }
-
-}
+}//

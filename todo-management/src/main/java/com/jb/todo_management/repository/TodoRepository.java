@@ -6,4 +6,4 @@ import com.jb.todo_management.entity.Todo;
 @Repository
 public interface TodoRepository extends JpaRepository<Todo, Long>{
 
-}
+}//

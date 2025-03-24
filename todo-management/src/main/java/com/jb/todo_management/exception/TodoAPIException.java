@@ -49,6 +49,4 @@ public class TodoAPIException extends RuntimeException
         this.status = status;
         this.message = message;
     }
-    
-
-}
+}//
