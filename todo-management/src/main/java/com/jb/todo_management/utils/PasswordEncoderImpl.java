@@ -9,4 +9,4 @@ public class PasswordEncoderImpl {
         System.out.println(passwordEncoder.encode("user"));//$2a$10$vvH8hBLSxTPb79lNAIpDLuoohzXdCE/0FbfyWF7fJrevBrf6C94dm
         System.out.println(passwordEncoder.encode("admin"));//$2a$10$.e9n7MN.fyt2d3OQBmsShuk1pp5kx7P/udwy.Ng5IASI7AW4HoBGm
     }
-}
+}//
