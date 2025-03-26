@@ -5,7 +5,11 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -19,4 +23,20 @@ public class SecurityConfig {
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); //statefull to stateless
         return http.build();
     }
+
+    // @Bean
+    // public UserDetailsService UserDetailsService()
+    // {
+    //     UserDetails user = User.withDefaultPasswordEncoder()
+    //                            .username("tharun")
+    //                            .password("tharun")
+    //                            .roles("USER");
+    //     UserDetails admin = User.withDefaultPasswordEncoder()
+    //                            .username("admin")
+    //                            .password("admin")
+    //                            .roles("ADMIN");
+        
+    //     return new InMemoryUserDetailsManager(user, admin);
+
+    // }
 }
