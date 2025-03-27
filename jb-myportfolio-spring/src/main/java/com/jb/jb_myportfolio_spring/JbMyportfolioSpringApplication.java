@@ -1,13 +1,13 @@
-package com.jb.spring_boot_rest;
+package com.jb.jb_myportfolio_spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootRestApplication {
+public class JbMyportfolioSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootRestApplication.class, args);
+		SpringApplication.run(JbMyportfolioSpringApplication.class, args);
 	}
 
 }
